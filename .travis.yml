@@ -1,0 +1,18 @@
+language: node_js
+
+notifications:
+  email:
+    recipients:
+      - shane@shanetomlinson.com
+    on_success: change
+    on_failure: always
+
+node_js:
+  - 0.10.25
+
+services:
+  - mongodb
+
+script:
+  - npm test
+
