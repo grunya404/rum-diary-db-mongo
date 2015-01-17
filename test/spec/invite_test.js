@@ -63,9 +63,9 @@ describe('invite', function () {
     });
   });
 
-  describe('createAndSendIfNotAlreadyInvited', function () {
-    it('should create an invite and send an email if the invitee does not exist', function () {
-      return invite.createAndSendIfNotAlreadyInvited({
+  describe('createIfNotAlreadyInvited', function () {
+    it('should create an invite if the invitee does not exist', function () {
+      return invite.createIfNotAlreadyInvited({
         from_email: 'from@testuser.com',
         to_email: 'to@testuser.com',
         hostname: 'testsite.com',
@@ -76,10 +76,10 @@ describe('invite', function () {
       });
     });
 
-    it('should create an invite and send an email if the invitee is already a user', function () {
+    it('should create an invite if the invitee is already a user', function () {
       return user.create({ email: 'to@testuser.com' })
         .then(function () {
-          return invite.createAndSendIfNotAlreadyInvited({
+          return invite.createIfNotAlreadyInvited({
             from_email: 'from@testuser.com',
             to_email: 'to@testuser.com',
             hostname: 'testsite.com',
@@ -91,7 +91,7 @@ describe('invite', function () {
     });
 
     it('should do nothing if the user is already invited', function () {
-        return invite.createAndSendIfNotAlreadyInvited({
+        return invite.createIfNotAlreadyInvited({
           from_email: 'from@testuser.com',
           to_email: 'to@testuser.com',
           hostname: 'testsite.com',
@@ -100,7 +100,7 @@ describe('invite', function () {
           // First invitation is sent.
           assert.ok(invitation);
 
-          return invite.createAndSendIfNotAlreadyInvited({
+          return invite.createIfNotAlreadyInvited({
             from_email: 'from@testuser.com',
             to_email: 'to@testuser.com',
             hostname: 'testsite.com',
