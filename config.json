@@ -1,0 +1,4 @@
+{
+  "databaseURI": "mongodb://localhost/rum-diary-database-mongo-test"
+}
+

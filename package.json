@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm test"
+    "test": "mocha --recursive test/"
   },
   "author": "Shane Tomlinson <shane@shanetomlinson.com>",
   "license": "MPL 2.0",
@@ -16,6 +16,15 @@
   "bugs": "https://github.com/shane-tomlinson/rum-diarydb-mongo/issues/",
   "dependencies": {
     "bluebird": "2.7.1",
-    "mongoose": "3.8.21"
+    "moment": "2.9.0",
+    "mongoose": "3.8.21",
+    "mongoose-timestamp": "0.3.0",
+    "rum-diary-access-levels": "0.0.0",
+    "underscore": "1.7.0",
+    "node-uuid": "~1.4.2"
+  },
+  "devDependencies": {
+    "chai": "1.10.0",
+    "mocha": "2.1.0"
   }
 }
