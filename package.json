@@ -1,6 +1,6 @@
 {
   "name": "rum-diary-db-mongo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Mongo database driver for rum-diary.org",
   "main": "index.js",
   "directories": {
