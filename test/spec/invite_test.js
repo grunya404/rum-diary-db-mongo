@@ -91,25 +91,25 @@ describe('invite', function () {
     });
 
     it('should do nothing if the user is already invited', function () {
+      return invite.createIfNotAlreadyInvited({
+        from_email: 'from@testuser.com',
+        to_email: 'to@testuser.com',
+        hostname: 'testsite.com',
+        access_level: accessLevels.ADMIN
+      }).then(function (invitation) {
+        // First invitation is sent.
+        assert.ok(invitation);
+
         return invite.createIfNotAlreadyInvited({
           from_email: 'from@testuser.com',
           to_email: 'to@testuser.com',
           hostname: 'testsite.com',
           access_level: accessLevels.ADMIN
-        }).then(function (invitation) {
-          // First invitation is sent.
-          assert.ok(invitation);
-
-          return invite.createIfNotAlreadyInvited({
-            from_email: 'from@testuser.com',
-            to_email: 'to@testuser.com',
-            hostname: 'testsite.com',
-            access_level: accessLevels.ADMIN
-          });
-        }).then(function (invitation) {
-          // User is already invited, no need to invite again.
-          assert.isUndefined(invitation);
         });
+      }).then(function (invitation) {
+        // User is already invited, no need to invite again.
+        assert.isUndefined(invitation);
+      });
     });
   });
 
