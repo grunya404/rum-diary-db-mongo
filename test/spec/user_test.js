@@ -8,7 +8,10 @@ const assert = require('chai').assert;
 const Promise = require('bluebird');
 const accessLevels = require('rum-diary-access-levels');
 
-const db = require('../../index');
+const db = Object.create(require('../../index'));
+const dbConfig = require('../lib/db-config');
+db.init(dbConfig);
+
 const userCollection = db.user;
 const siteCollection = db.site;
 

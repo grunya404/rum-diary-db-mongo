@@ -7,7 +7,11 @@
 const mocha = require('mocha');
 const assert = require('chai').assert;
 
-const db = require('../../index');
+
+const db = Object.create(require('../../index'));
+const dbConfig = require('../lib/db-config');
+db.init(dbConfig);
+
 const tags = db.tags;
 
 const testExtras = require('../lib/test-extras');
