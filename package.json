@@ -21,13 +21,20 @@
     "mongoose-timestamp": "0.3.0",
     "node-uuid": "1.4.2",
     "rum-diary-access-levels": "0.0.0",
+    "string-utils": "git://github.com/shane-tomlinson/string-utils#5afc31f8bd",
     "underscore": "1.7.0"
   },
   "devDependencies": {
     "chai": "1.10.0",
     "grunt": "0.4.5",
+    "grunt-build-control": "git://github.com/robwierzbowski/grunt-build-control#274952",
+    "grunt-bump": "0.0.16",
+    "grunt-contrib-jshint": "0.10.0",
     "grunt-contrib-watch": "0.6.1",
+    "grunt-conventional-changelog": "1.1.0",
+    "grunt-copyright": "0.1.0",
+    "grunt-jscs": "1.2.0",
     "grunt-mocha-test": "0.12.6",
-    "mocha": "2.1.0",
+    "load-grunt-tasks": "2.0.0"
   }
 }

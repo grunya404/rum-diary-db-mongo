@@ -3,28 +3,33 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 module.exports = function (grunt) {
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-mocha-test');
+  // load all grunt tasks matching the `grunt-*` pattern
+  require('load-grunt-tasks')(grunt);
+
+  var pkg = grunt.file.readJSON('package.json');
 
   grunt.initConfig({
-    mochaTest: {
-      options: {
-        reporter: 'spec',
-        captureFile: 'results.txt', // Optionally capture the reporter output to a file
-        quiet: false, // Optionally suppress output to standard out (defaults to false)
-        clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
-      },
-      src: ['test/**/*.js']
-    },
-    watch: {
-      scripts: {
-        files: ['**/*.js'],
-        tasks: ['mochaTest'],
-        options: {
-          spawn: true
-        }
-      }
-    }
+    pkg: pkg,
+    pkgReadOnly: pkg
   });
+
+  // load local Grunt tasks
+  grunt.loadTasks('tasks');
+
+  grunt.registerTask('test',
+    'Run tests',
+    ['mochaTest']);
+
+  grunt.registerTask('lint',
+    'Alias for jshint and jscs tasks',
+    ['jshint', 'jscs']);
+
+  /*
+  grunt.registerTask('doc',
+    ['markdox']);
+    */
+
+  grunt.registerTask('release',
+    ['build', 'bump-only', 'changelog', 'bump-commit', 'doc', 'buildcontrol']);
 };
 
