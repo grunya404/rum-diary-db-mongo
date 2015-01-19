@@ -21,6 +21,7 @@
     "mongoose-timestamp": "0.3.0",
     "node-uuid": "1.4.2",
     "rum-diary-access-levels": "0.0.0",
+    "string-utils": "git://github.com/shane-tomlinson/string-utils#5afc31f8bd",
     "underscore": "1.7.0"
   },
   "devDependencies": {
